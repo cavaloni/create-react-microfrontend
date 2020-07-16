@@ -1,0 +1,26 @@
+{
+  "name": "@cavaloni/create-react-microfrontend",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://cavaloni/create-react-microfrontend"
+  },
+  "author": "EMP CI <emp@zulily.com> (https://gitlab.corp.zulily.com/groups/emp)",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react-dom": "^16.9.8",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.9.7"
+  }
+}
