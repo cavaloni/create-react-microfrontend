@@ -1,0 +1,21 @@
+{
+	"include": [
+        "**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+	],
+	"compilerOptions": {
+		"sourceMap": true,
+	   "module": "esnext",
+	   "moduleResolution": "node",
+	   "target": "es5",
+	   "jsx": "react",
+	   "allowSyntheticDefaultImports": true,
+	   "esModuleInterop": true,
+	   "typeRoots": [
+		 "./node_modules/@types/"
+	   ],
+   }
+  }
