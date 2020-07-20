@@ -14,7 +14,9 @@
   "author": "EMP CI <emp@zulily.com> (https://gitlab.corp.zulily.com/groups/emp)",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^14.0.23",
+    "@types/node": "^14.0.23"
+  },
+  "peerDependencies": {
     "react-dom": "^16.13.1",
     "react": "^16.13.1"
   },

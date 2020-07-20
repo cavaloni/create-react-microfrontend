@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
-
 export const createMicroFrontend = (
-    renderFunc,
-    appName,
-    microLocal?,
-    localProps?,
-    localContainer?
-) => {
-    const createMFE = (props?) => {
+  renderFunc,
+  appName,
+  noMFE?,
+  localProps?,
+  localContainer?
+  ) => {
+    const  ReactDOM = require('react-dom');
+    const createMFE = () => {
         const render = (containerId, data) => {
             const container = document.getElementById(containerId)
             if (!containerId) {
                 throw new Error('An ID must provided')
             }
-            const propsToUse = Object.keys(props).length > 0 ? props : data
-            renderFunc(propsToUse, container)
+            renderFunc(data, container)
         }
         const unmount = containerId => {
             const container = document.getElementById(containerId)
@@ -31,17 +28,13 @@ export const createMicroFrontend = (
         }
     }
 
-    if (process.env.NODE_ENV === 'development') {
-        if (microLocal) {
-            createMFE(localProps)
-        } else {
-            renderFunc(
-                localProps,
-                document.getElementById(
-                    localContainer ? localContainer : 'root'
-                )
+    if (noMFE) {
+        renderFunc(
+            localProps,
+            document.getElementById(
+                localContainer ? localContainer : 'root'
             )
-        }
+        )
     } else {
         createMFE()
     }
@@ -49,9 +42,9 @@ export const createMicroFrontend = (
 
 
 export const useMicrofrontendReact = (id, url) => {
+  const { useEffect, useState } = require('react');
   const scriptId = `${id}Bundle`;
-  const [isLoaded, setLoaded] = useState(!!window[id]);
-  const [app, updateApp] = useState({});
+  const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
     let promises;
@@ -77,14 +70,17 @@ export const useMicrofrontendReact = (id, url) => {
           },
             );
         Promise.all(promises).then(() => {
-          const app = window[`${id}MicroFrontend`];
-          updateApp(app);
           setLoaded(true);
         });
       });
   },        []);
 
+  const app = window[`${id}MicroFrontend`];
+
   return [isLoaded, app as any];
 };
 
-export default useMicrofrontendReact;
+export default {
+  createMicroFrontend,
+  useMicrofrontendReact
+};

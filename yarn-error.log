@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/q1449700/Documents/create-react-microfrontend/package.json: Unexpected token } in JSON at position 531
+  SyntaxError: /Users/q1449700/Documents/create-react-microfrontend/package.json: Unexpected token } in JSON at position 477
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -39,8 +39,10 @@ npm manifest:
     "license": "ISC",
     "dependencies": {
       "@types/node": "^14.0.23",
+    },
+    "peerDependencies": {
       "react-dom": "^16.13.1",
-      "react": "^16.13.1",
+      "react": "^16.13.1"
     },
     "devDependencies": {
       "@babel/core": "^7.10.5",
