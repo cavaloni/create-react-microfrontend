@@ -1,22 +1,18 @@
-# Create MicroFrontEnd
+# Create React MicroFrontEnd
 
 Library that provides the ability to render a Create React App project within another React app.
 
 ## Setup
 
-1. Install
+### 1. Install
 
 `yarn add ` or `npm install` `create-react-microfrontend`
 
-2. In the Create React App you want to be the micro frontend:
-
-`import { createMicroFrontend } from 'create-react-microfrontend'`
-
-3. Use it in root index.js in the MFE (MicroFrontEnd)
-
-Example:
+### 2. In the Create React App you want to be the micro frontend, in index.js:
 
 ```
+import { createMicroFrontend } from 'create-react-microfrontend'
+
 const reactRender = (renderProps, container) => {
     ReactDOM.render(
         <Router history={customHistory}>
@@ -41,7 +37,7 @@ To develop locally, in the third argument, pass `true` (the noMFE option), and i
 
 The `appName` will need to match the `appName` in the next step to retrieve the matching MFE.
 
-4. useMicroFrontendReact in the parent application
+### 3. useMicroFrontendReact in the parent application
 
 Example :
 
@@ -62,7 +58,7 @@ const [isLoaded, POP] = useMicrofrontendReact('POP', 'http://localhost:3000');
 
 ```
 
-`useMicrofrontendReact(appName, microFrontendURL)` returns `isLoaded` and the application functions of `render(id, props)` and `unmount(id)`. Once the application is fetched, `isLoaded` returns true and the app can be rendered, and then unmount can be used in the cleanup as a returned function to a `useEffect`.
+`useMicrofrontendReact(appName, microFrontendURL)` returns `isLoaded` and the application functions of `render(id, props)` and `unmount(id)`. Once the application is fetched, `isLoaded` returns true and the app can be rendered, and then `unmount` can be used in the cleanup as a returned function to a `useEffect`.
 
 
 
