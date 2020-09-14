@@ -1,5 +1,5 @@
 import { Render, Unmount } from './types';
-type LocalProps = { any }
+type LocalProps = object
 type Container = HTMLElement
 
 export const createMicroFrontend = (
@@ -35,7 +35,7 @@ export const createMicroFrontend = (
     if (noMFE) {
         renderFunc(
             localProps,
-            document.getElementById(localContainer ? localContainer : 'root')
+            document.getElementById(localContainer || 'root')
         )
     } else {
         createMFE()
